@@ -1,0 +1,207 @@
+/* ══════════════════════════════════════════════════════════════════════════
+   MindfulAI — Professional Dark Theme
+   Clean, corporate, healthcare-grade design.
+   ══════════════════════════════════════════════════════════════════════════ */
+
+/* -- Google Font --------------------------------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+/* -- Root variables ------------------------------------------------------ */
+:root {
+    --bg-primary:   #111318;
+    --bg-secondary: #1a1d24;
+    --bg-card:      rgba(26, 29, 36, 0.75);
+    --text-primary: #e8eaed;
+    --text-muted:   #9aa0a6;
+    --accent:       #4dc9b0;
+    --accent-hover: #3db89f;
+    --accent-soft:  rgba(77, 201, 176, 0.10);
+    --accent-border:rgba(77, 201, 176, 0.18);
+    --border:       rgba(255,255,255,0.06);
+    --border-hover: rgba(255,255,255,0.10);
+    --radius:       10px;
+    --shadow:       0 2px 12px rgba(0,0,0,0.25);
+}
+
+/* -- Global -------------------------------------------------------------- */
+html, body, [data-testid="stAppViewContainer"],
+[data-testid="stApp"] {
+    font-family: 'Inter', sans-serif !important;
+    background: var(--bg-primary) !important;
+    color: var(--text-primary) !important;
+}
+
+/* Hide default Streamlit branding */
+#MainMenu, footer, header[data-testid="stHeader"] {
+    visibility: hidden !important;
+    height: 0 !important;
+}
+
+/* -- Sidebar ------------------------------------------------------------- */
+[data-testid="stSidebar"] {
+    background: var(--bg-secondary) !important;
+    border-right: 1px solid var(--border) !important;
+}
+
+[data-testid="stSidebar"] [data-testid="stMarkdown"] h4 {
+    color: var(--accent) !important;
+    font-weight: 600 !important;
+    font-size: 0.8rem !important;
+    letter-spacing: 0.04em !important;
+    text-transform: uppercase !important;
+    margin-top: 0.8rem !important;
+}
+
+/* -- Buttons ------------------------------------------------------------- */
+.stButton > button {
+    border-radius: 8px !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.01em !important;
+    transition: all 0.2s ease !important;
+}
+
+.stButton > button[kind="primary"],
+.stButton [data-testid="stBaseButton-primary"] {
+    background: var(--accent) !important;
+    border: none !important;
+    color: #111318 !important;
+}
+
+.stButton > button[kind="primary"]:hover,
+.stButton [data-testid="stBaseButton-primary"]:hover {
+    background: var(--accent-hover) !important;
+}
+
+.stButton > button:hover {
+    transform: translateY(-1px) !important;
+    box-shadow: 0 4px 14px rgba(77,201,176,0.15) !important;
+}
+
+/* -- Chat messages ------------------------------------------------------- */
+[data-testid="stChatMessage"] {
+    background: var(--bg-card) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: var(--radius) !important;
+    padding: 1rem 1.2rem !important;
+    margin-bottom: 0.6rem !important;
+    box-shadow: var(--shadow) !important;
+    animation: fadeIn 0.3s ease both;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* -- Chat input ---------------------------------------------------------- */
+[data-testid="stChatInput"] {
+    border-radius: var(--radius) !important;
+}
+
+[data-testid="stChatInput"] textarea {
+    background: var(--bg-secondary) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: var(--radius) !important;
+    color: var(--text-primary) !important;
+    font-family: 'Inter', sans-serif !important;
+}
+
+[data-testid="stChatInput"] textarea:focus {
+    border-color: var(--accent-border) !important;
+}
+
+/* -- Welcome card -------------------------------------------------------- */
+.welcome-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 1rem 0 1.5rem;
+    animation: fadeIn 0.4s ease both;
+}
+
+.feature-chip {
+    background: var(--accent-soft);
+    border: 1px solid var(--accent-border);
+    border-radius: 8px;
+    padding: 0.55rem 0.9rem;
+    font-size: 0.85rem;
+    color: var(--text-primary);
+    text-align: center;
+    transition: background 0.2s ease;
+}
+
+.feature-chip:hover {
+    background: rgba(77, 201, 176, 0.16);
+}
+
+/* -- Inputs & select boxes ----------------------------------------------- */
+[data-testid="stSelectbox"] > div > div,
+[data-testid="stTextArea"] textarea,
+[data-testid="stTextInput"] input {
+    background: var(--bg-primary) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: 8px !important;
+    color: var(--text-primary) !important;
+}
+
+[data-testid="stSelectbox"] > div > div:focus-within,
+[data-testid="stTextArea"] textarea:focus,
+[data-testid="stTextInput"] input:focus {
+    border-color: var(--accent-border) !important;
+}
+
+/* -- Divider ------------------------------------------------------------- */
+hr {
+    border-color: var(--border) !important;
+    opacity: 0.6 !important;
+}
+
+/* -- Alert / info / warning boxes ---------------------------------------- */
+[data-testid="stAlert"] {
+    border-radius: 8px !important;
+    font-size: 0.87rem !important;
+}
+
+/* -- Scrollbar ----------------------------------------------------------- */
+::-webkit-scrollbar {
+    width: 5px;
+}
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.08);
+    border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255,255,255,0.14);
+}
+
+/* -- Toast --------------------------------------------------------------- */
+[data-testid="stToast"] {
+    border-radius: 8px !important;
+}
+
+/* -- Plotly chart -------------------------------------------------------- */
+[data-testid="stPlotlyChart"] {
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* -- Caption (timestamps) ------------------------------------------------ */
+[data-testid="stChatMessage"] [data-testid="stCaption"] {
+    color: var(--text-muted) !important;
+    font-size: 0.72rem !important;
+    margin-top: 0.3rem !important;
+}
+
+/* -- Disclaimer banner --------------------------------------------------- */
+.disclaimer-bar {
+    text-align: center;
+    padding: 0.55rem;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    border-top: 1px solid var(--border);
+    margin-top: 1rem;
+}
