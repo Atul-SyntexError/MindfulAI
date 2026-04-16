@@ -6,7 +6,6 @@
 
 *An AI-powered mental health assistant using evidence-based CBT techniques,
 built with Streamlit & Groq LLM*
-
 ## 🚀 Live Demo
 🔗 [Try the App Here](https://mindfulaii.streamlit.app)
 
